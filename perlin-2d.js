@@ -5,13 +5,13 @@ var zoff = 0;
 var particle = [];
 var flowField = [];
 function setup() {
-  createCanvas(300, 300);
+  createCanvas(500, 300);
   cols = floor(width / scl);
   rows = floor(height / scl);
 
   flowField = new Array(cols * rows);
 
-  for (var i = 0; i < 100; i++) {
+  for (var i = 0; i < 300; i++) {
     particle[i] = new Particle();
 
     background(255);
@@ -30,13 +30,13 @@ function draw() {
       v.setMag(0.5);
       flowField[index] = v;
       xoff += inc;
-    //   stroke(0, 40);
-    //   push();
-    //   translate(x * scl, y * scl);
-    //   rotate(v.heading());
-    //   strokeWeight(1);
-    //   line(0, 0, scl, 0);
-    //   pop();
+      //   stroke(0, 40);
+      //   push();
+      //   translate(x * scl, y * scl);
+      //   rotate(v.heading());
+      //   strokeWeight(1);
+      //   line(0, 0, scl, 0);
+      //   pop();
     }
     yoff += inc;
     zoff += 0.001;
@@ -44,8 +44,9 @@ function draw() {
   for (var i = 0; i < particle.length; i++) {
     particle[i].follow(flowField);
     particle[i].update();
-    particle[i].show();
+
     particle[i].edges();
+    particle[i].show();
   }
   //noLoop();
 }
