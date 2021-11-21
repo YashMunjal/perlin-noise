@@ -23,7 +23,7 @@ function Particle() {
     this.acc.add(force);
   };
   this.show = function () {
-    stroke(0, 5);
+    stroke(0,2);
     strokeWeight(2);
     line(this.pos.x, this.pos.y, this.prevPos.x, this.prevPos.y);
     //point(this.pos.x, this.pos.y);
